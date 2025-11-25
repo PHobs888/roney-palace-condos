@@ -2,42 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+
+    <!-- Title -->
+    <title>Roney Palace Condos | 2301 Collins Ave Miami Beach | For Sale & Rent</title>
+
+    <!-- SEO META TAGS -->
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Browse luxury condos for sale and rent at Roney Palace, 2301 Collins Ave Miami Beach. Oceanfront units, resort-style amenities, short-term rental friendly, connected to 1 Hotel. Contact for availability."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <meta
+      name="keywords"
+      content="Roney Palace condos, Roney Palace Miami, 2301 Collins Ave, Miami Beach condos, Miami Beach rentals, 1 Hotel residences, oceanfront condos Miami, luxury condos Miami Beach"
+    />
+
+    <meta name="author" content="Paul H - Coldwell Banker Realty" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- SOCIAL SHARE / OPEN GRAPH -->
+    <meta property="og:title" content="Roney Palace Condos | Miami Beach" />
+    <meta
+      property="og:description"
+      content="Luxury oceanfront condos for sale & rent at 2301 Collins Ave Miami Beach with access to 1 Hotel amenities. View listings and request info."
+    />
+    <meta property="og:image" content="/roney-hero.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://roneyPalaceCondos.com" />
+
+    <!-- SCHEMA FOR GOOGLE -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateWebsite",
+        "name": "Roney Palace Condos",
+        "image": "/roney-hero.jpg",
+        "url": "https://roneypalacecondos.com",
+        "logo": "/roney-hero.jpg",
+        "description": "Luxury oceanfront condos for sale and rent at Roney Palace in Miami Beach.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2301 Collins Ave",
+          "addressLocality": "Miami Beach",
+          "addressRegion": "FL",
+          "postalCode": "33139",
+          "addressCountry": "US"
+        },
+        "telephone": "+16172129970"
+      }
+    </script>
+
+    <!-- React -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

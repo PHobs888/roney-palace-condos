@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+/* GLOBAL RESET */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #222;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  width: 100%;
+  background: url('/roney-hero.jpg') no-repeat center center/cover;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.35);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  text-align: center;
   color: white;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+/* BUTTONS */
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.hero-buttons button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: white;
+  color: black;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero-buttons button:hover {
+  background: #f0f0f0;
+}
+
+/* SECTIONS */
+.intro, .listings-section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.intro h2, .listings-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.intro p, .listings-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.85;
 }
