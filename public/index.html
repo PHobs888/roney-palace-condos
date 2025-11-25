@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7692W1H34"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B7692W1H34');
+    </script>
 
-    <!-- Responsive -->
+    <!-- Meta Charset & Viewport -->
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Title -->
@@ -12,18 +20,16 @@
     <!-- SEO META TAGS -->
     <meta
       name="description"
-      content="Browse luxury condos for sale and rent at Roney Palace, 2301 Collins Ave Miami Beach. Oceanfront units, resort-style amenities, short-term rental friendly, connected to 1 Hotel. Contact for availability."
+      content="Luxury condos for sale and rent at Roney Palace, 2301 Collins Ave, Miami Beach. Oceanfront living steps from the 1 Hotel and South Beach nightlife."
     />
-
     <meta
       name="keywords"
-      content="Roney Palace condos, Roney Palace Miami, 2301 Collins Ave, Miami Beach condos, Miami Beach rentals, 1 Hotel residences, oceanfront condos Miami, luxury condos Miami Beach"
+      content="Roney Palace condos for sale, Roney Palace Miami Beach, 2301 Collins Ave, Miami condos, South Beach luxury condos, Roney Palace rentals"
     />
-
     <meta name="author" content="Paul H - Coldwell Banker Realty" />
     <meta name="robots" content="index, follow" />
 
-    <!-- SOCIAL SHARE / OPEN GRAPH -->
+    <!-- Open Graph (Social Sharing) -->
     <meta property="og:title" content="Roney Palace Condos | Miami Beach" />
     <meta
       property="og:description"
@@ -31,9 +37,9 @@
     />
     <meta property="og:image" content="/roney-hero.jpg" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://roneyPalaceCondos.com" />
+    <meta property="og:url" content="https://roneypalacecondos.com" />
 
-    <!-- SCHEMA FOR GOOGLE -->
+    <!-- Schema for Google: RealEstateWebsite -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -55,7 +61,39 @@
       }
     </script>
 
-    <!-- React -->
+    <!-- Schema for Google: Agent Info -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Paul Hobson - Coldwell Banker Realty",
+        "image": "https://roneypalacecondos.com/logo.png",
+        "url": "https://roneypalacecondos.com",
+        "telephone": "+1-617-212-9970",
+        "email": "info@roneypalacecondos.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2301 Collins Ave",
+          "addressLocality": "Miami Beach",
+          "addressRegion": "FL",
+          "postalCode": "33139",
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": "South Beach, Miami Beach"
+        },
+        "openingHours": "Mo-Su 08:00-20:00",
+        "sameAs": [
+          "https://www.coldwellbankerhomes.com/fl/miami-beach/",
+          "https://www.linkedin.com/in/paulhobson/",
+          "https://www.instagram.com/rodericks.haus/"
+        ]
+      }
+    </script>
+
+    <!-- Favicon -->
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   </head>
 

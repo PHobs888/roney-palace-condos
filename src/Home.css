@@ -2,13 +2,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* HERO */
+/* ===============================
+   HERO SECTION
+=================================*/
 .hero {
   position: relative;
   height: 90vh;
-  background-image: url('/roney-hero.jpg'); /* Your uploaded image */
-  background-size: cover;
-  background-position: center;
+  background: url("/roney-hero.jpg") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,38 +73,35 @@ html {
 }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.about {
+/* ===============================
+   ABOUT SECTION
+=================================*/
+.about,
+.sale-section,
+.rent-section {
   padding: 60px 20px;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
-.about h2 {
+.about h2,
+.sale-section h2,
+.rent-section h2 {
   font-size: 2.4rem;
   margin-bottom: 15px;
   color: #222;
 }
 
-.about p {
+.about p,
+.sale-section p,
+.rent-section p {
   font-size: 1.2rem;
   line-height: 1.6;
   color: #555;
-}
-.sale-section {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.sale-section h2 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-  color: #222;
 }
 
 .section-note {
@@ -121,19 +118,10 @@ html {
   font-size: 1.1rem;
   color: #777;
 }
-.rent-section {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
 
-.rent-section h2 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-  color: #222;
-}
-
+/* ===============================
+   AMENITIES SECTION
+=================================*/
 .amenities {
   padding: 60px 20px;
   max-width: 1000px;
@@ -165,10 +153,13 @@ html {
 }
 
 .amenity-card:hover {
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
-/* CONTACT SECTION */
+
+/* ===============================
+   CONTACT SECTION
+=================================*/
 .contact {
   padding: 70px 20px;
   max-width: 760px;
@@ -190,20 +181,11 @@ html {
 }
 
 .contact-card {
-  background: #ffffff;
+  background: #fff;
   padding: 40px;
   border-radius: 14px;
   border: 1px solid #e4e4e4;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-.contact-photo {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 18px;
-  border: 3px solid #007aff33;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 .contact-title {
@@ -232,7 +214,7 @@ html {
   margin-top: 25px;
   padding: 14px 32px;
   background: #007aff;
-  color: white;
+  color: #fff;
   border-radius: 6px;
   text-decoration: none;
   font-size: 1.15rem;
@@ -244,72 +226,58 @@ html {
   background: #005fcc;
 }
 
-
+/* ===============================
+   FOOTER
+=================================*/
 .footer {
-  background: #111;
-  color: #eee;
   text-align: center;
-  padding: 30px 20px;
-  margin-top: 60px;
+  padding: 40px 20px;
+  background: #000;
+  color: #fff;
+  font-size: 0.9rem;
 }
 
 .footer a {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.footer p {
-  margin: 6px 0;
-  font-size: 0.95rem;
-}
-.contact-card a {
-  color: #007aff !important;
-  text-decoration: none;
-}
-
-.contact-card p a {
-  color: #007aff !important;
-}
-/* FOOTER */
-.footer {
-  background: linear-gradient(180deg, #111, #000);
-  padding: 45px 20px;
-  text-align: center;
-  color: #bbb;
-  margin-top: 80px;
-  border-top: 1px solid #222;
-}
-
-.footer-container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.footer-brand {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.footer-subtitle {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 12px;
-}
-
-.footer-contact a {
   color: #4da8ff;
   text-decoration: none;
-  font-size: 1.05rem;
 }
 
-.footer-contact a:hover {
+.footer a:hover {
   text-decoration: underline;
+}
+
+.footer .disclaimer {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #bbb;
+  line-height: 1.5;
 }
 
 .footer-copy {
-  margin-top: 18px;
-  font-size: 0.9rem;
-  color: #888;
+  margin-top: 8px;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+=================================*/
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 1rem;
+    padding: 10px 24px;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
+  }
 }
