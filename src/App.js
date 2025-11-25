@@ -10,7 +10,7 @@ function App() {
 
 
 {/* HERO SECTION */}
-<div className="hero">
+<div className="hero" id="home">
   <div className="hero-overlay"></div>
 
   <div className="hero-content">

@@ -1,4 +1,8 @@
-/* NAVBAR */
+* {
+  box-sizing: border-box;
+}
+
+/* NAVBAR BASE */
 .navbar {
   position: fixed;
   top: 0;
@@ -23,14 +27,15 @@
   align-items: center;
 }
 
+/* LOGO */
 .nav-logo {
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
   cursor: pointer;
   color: white;
 }
 
+/* DESKTOP NAV */
 .nav-links {
   display: flex;
   list-style: none;
@@ -51,4 +56,37 @@
 .nav-links li.active {
   color: #4da8ff;
   font-weight: 600;
+}
+
+/* HAMBURGER ICON */
+.hamburger {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.95);
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    gap: 25px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
 }
