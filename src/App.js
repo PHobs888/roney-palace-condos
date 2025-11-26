@@ -11,11 +11,15 @@ function App() {
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
-          <h1 className="hero-title">Roney Palace Condos</h1>
+          <h1 className="hero-title">Roney Palace Condos for Sale & Rent in Miami Beach</h1>
           <p className="hero-subtitle">
             Luxury beachfront residences at 2301 Collins Ave, Miami Beach
           </p>
-
+          <img
+         src="/roney-hero.jpg"
+         alt="Roney Palace oceanfront condos in Miami Beach at 2301 Collins Ave"
+         style={{ display: "none" }}
+/>
           <div className="hero-buttons">
             <a href="#sale" className="btn-primary">
               Condos for Sale
@@ -89,7 +93,7 @@ function App() {
         </p>
 
         <div className="contact-card">
-          <h3>Paul H.</h3>
+          <h3>Paul Hobson</h3>
           <p className="contact-title">
             Real Estate Advisor · Coldwell Banker Realty
           </p>
