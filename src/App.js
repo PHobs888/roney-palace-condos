@@ -1,7 +1,29 @@
+import { useState, useEffect } from "react";
 import "./Home.css";
 import Navbar from "./components/Navbar";
 
 function App() {
+  const [listings, setListings] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("https://roneypalacecondos.com/api/listings-api.php")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch listings");
+        return res.json();
+      })
+      .then((data) => {
+        setListings(data.bundle || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+  
   return (
     <>
       <Navbar />
@@ -44,17 +66,26 @@ function App() {
       </section>
 
       {/* SALE SECTION */}
-      <section className="sale-section" id="sale">
-        <h2>Condos For Sale</h2>
-        <p className="section-note">
-          MLS listings will appear here automatically once your IDX access is
-          activated.
-        </p>
+<section className="sale-section" id="sale">
+  <h2>Condos For Sale</h2>
 
-        <div className="listing-placeholder">
-          <p>Listings loading soon...</p>
-        </div>
-      </section>
+  {loading && <p>Loading listings…</p>}
+  {error && <p style={{ color: "red" }}>Error: {error}</p>}
+
+  <div className="listings-grid">
+    {listings.map((listing) => (
+      <div className="listing-card" key={listing.ListingKey}>
+        <h3>
+          {listing.StreetNumber} {listing.StreetName}
+        </h3>
+        <p>Price: ${listing.ListPrice?.toLocaleString()}</p>
+        <p>Beds: {listing.BedroomsTotal}</p>
+        <p>Baths: {listing.BathroomsTotalInteger}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* RENT SECTION */}
       <section className="rent-section" id="rent">
