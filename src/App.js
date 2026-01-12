@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // ✅ Only sales state
+  const [saleListings, setSaleListings] = useState([]);
+  const [loadingSales, setLoadingSales] = useState(true);
+  const [errorSales, setErrorSales] = useState(null);
 
+  // ✅ Fetch sales once
   useEffect(() => {
     fetch("https://roneypalacecondos.com/api/listings-api.php")
       .then((res) => {
@@ -14,16 +16,21 @@ function App() {
         return res.json();
       })
       .then((data) => {
-        setListings(data.bundle || []);
-        setLoading(false);
+        const allListings = data.bundle || [];
+
+        // ✅ Sales flag from MIAMI RE feed
+        const sales = allListings.filter((l) => l.MIAMIRE_ForSaleYN === true);
+
+        setSaleListings(sales);
+        setLoadingSales(false);
       })
       .catch((err) => {
         console.error(err);
-        setError(err.message);
-        setLoading(false);
+        setErrorSales(err.message || "Failed to fetch");
+        setLoadingSales(false);
       });
   }, []);
-  
+
   return (
     <>
       <Navbar />
@@ -33,21 +40,26 @@ function App() {
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
-          <h1 className="hero-title">Roney Palace Condos for Sale & Rent in Miami Beach</h1>
+          <h1 className="hero-title">
+            Roney Palace Condos for Sale in Miami Beach
+          </h1>
           <p className="hero-subtitle">
             Luxury beachfront residences at 2301 Collins Ave, Miami Beach
           </p>
+
+          {/* hidden preload image */}
           <img
-         src="/roney-hero.jpg"
-         alt="Roney Palace oceanfront condos in Miami Beach at 2301 Collins Ave"
-         style={{ display: "none" }}
-/>
+            src="/roney-hero.jpg"
+            alt="Roney Palace oceanfront condos in Miami Beach at 2301 Collins Ave"
+            style={{ display: "none" }}
+          />
+
           <div className="hero-buttons">
             <a href="#sale" className="btn-primary">
-              Condos for Sale
+              View Condos for Sale
             </a>
-            <a href="#rent" className="btn-secondary">
-              Condos for Rent
+            <a href="#contact" className="btn-secondary">
+              Contact
             </a>
           </div>
         </div>
@@ -66,36 +78,41 @@ function App() {
       </section>
 
       {/* SALE SECTION */}
-<section className="sale-section" id="sale">
-  <h2>Condos For Sale</h2>
+      <section className="sale-section" id="sale">
+        <h2>Condos For Sale</h2>
 
-  {loading && <p>Loading listings…</p>}
-  {error && <p style={{ color: "red" }}>Error: {error}</p>}
+        {loadingSales && <p>Loading listings…</p>}
+        {errorSales && <p style={{ color: "red" }}>Error: {errorSales}</p>}
 
-  <div className="listings-grid">
-    {listings.map((listing) => (
-      <div className="listing-card" key={listing.ListingKey}>
-        <h3>
-          {listing.StreetNumber} {listing.StreetName}
-        </h3>
-        <p>Price: ${listing.ListPrice?.toLocaleString()}</p>
-        <p>Beds: {listing.BedroomsTotal}</p>
-        <p>Baths: {listing.BathroomsTotalInteger}</p>
-      </div>
-    ))}
-  </div>
-</section>
+        {!loadingSales && !errorSales && saleListings.length === 0 && (
+          <p>No condos currently for sale at Roney Palace.</p>
+        )}
 
+        <div className="listings-grid">
+          {saleListings.map((listing) => (
+            <div className="listing-card" key={listing.ListingKey}>
+              <h3>
+                {listing.StreetNumber} {listing.StreetName}
+                {listing.UnitNumber ? ` #${listing.UnitNumber}` : ""}
+              </h3>
 
-      {/* RENT SECTION */}
-      <section className="rent-section" id="rent">
-        <h2>Condos For Rent</h2>
-        <p className="section-note">
-          Rental listings will be displayed here once IDX access is active.
-        </p>
+              <p>
+                Price:{" "}
+                {listing.ListPrice
+                  ? `$${Number(listing.ListPrice).toLocaleString()}`
+                  : "—"}
+              </p>
 
-        <div className="listing-placeholder">
-          <p>Rental listings loading soon...</p>
+              <p>Beds: {listing.BedroomsTotal ?? "—"}</p>
+              <p>Baths: {listing.BathroomsTotalInteger ?? "—"}</p>
+
+              {listing.MIAMI_AssociationName && (
+                <p style={{ opacity: 0.75, marginTop: "6px" }}>
+                  {listing.MIAMI_AssociationName}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -119,8 +136,8 @@ function App() {
       <section className="contact" id="contact">
         <h2>Contact</h2>
         <p className="contact-intro">
-          Interested in buying, renting, or investing at Roney Palace? Contact
-          me anytime — I respond quickly.
+          Interested in buying or investing at Roney Palace? Contact me anytime —
+          I respond quickly.
         </p>
 
         <div className="contact-card">
@@ -161,9 +178,7 @@ function App() {
           This website is not affiliated with, sponsored by, or associated with
           Roney Palace Condominium Association, Inc.
         </p>
-        <p className="footer-copy">
-          © {new Date().getFullYear()} All Rights Reserved
-        </p>
+        <p className="footer-copy">© {new Date().getFullYear()} All Rights Reserved</p>
       </footer>
     </>
   );
